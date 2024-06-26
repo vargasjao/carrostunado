@@ -10,7 +10,6 @@ import {
 import Title from "../components/Title";
 import List from "../components/List";
 
-
 export default function home() {
   const navigation = useNavigation();
 
@@ -32,5 +31,6 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     justifyContent: "center",
     padding: 40,
+    flexDirection: "column",
   },
 });

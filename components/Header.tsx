@@ -1,16 +1,6 @@
-import {
-  StatusBar,
-  StyleSheet,
-  View,
-  Text,
-  TextInput,
-  Image,
-} from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import React from "react";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack";
-import { NativeScreenNavigationContainer } from "react-native-screens";
-import { Colors } from "react-native/Libraries/NewAppScreen";
-import logo from "..assets/logo.png";
 import Menu from "./Menu";
 
 const Header = (props: NativeStackHeaderProps) => {
@@ -34,7 +24,6 @@ const styles = StyleSheet.create({
     maxWidth: 200,
     maxHeight: 200,
     display: "flex",
-    
   },
 });
 export default Header;

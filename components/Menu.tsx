@@ -1,17 +1,17 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
 import { useActionSheet } from "@expo/react-native-action-sheet";
-import { router, useRouter } from "expo-router";
+import { router, usePathname, useRouter } from "expo-router";
 import { Image } from "react-native";
 
 export default function Menu() {
   const { showActionSheetWithOptions } = useActionSheet();
   const router = useRouter();
+  const pathname = usePathname();
 
   const onPress = () => {
-    const options = ["Logout", "About"];
+    let options = ["Logout", "About"];
     const destructiveButtonIndex = 0;
-
     showActionSheetWithOptions(
       {
         destructiveButtonIndex,

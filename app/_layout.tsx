@@ -4,6 +4,7 @@ import { Stack, Tabs } from "expo-router";
 import Header from "../components/Header";
 import { ActionSheetProvider } from "@expo/react-native-action-sheet";
 import { useActionSheet } from "@expo/react-native-action-sheet";
+import Menu from "../components/Menu";
 
 export default function _layout() {
   return (
@@ -11,6 +12,7 @@ export default function _layout() {
       <Stack
         screenOptions={{
           header: Header,
+
         }}
       />
     </ActionSheetProvider>

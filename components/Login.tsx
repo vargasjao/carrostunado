@@ -3,22 +3,26 @@ import {
   Text,
   TextInput,
   StyleSheet,
-  Pressable,
-  Image,
+  TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
-import caricon from "../assets/caricon.png";
 import { router, useRouter } from "expo-router";
 
-export default function Login() {
+type LoginProps = {
+  onLogin?: () => void;
+};
+
+export default function Login({ onLogin }: LoginProps) {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
 
   const router = useRouter();
 
   const handleGoToHome = () => {
-    if (Username == "teste" && Password == "123") router.push("/home");
-    else alert("Usuário ou senha inválidos");
+    onLogin?.();
+    if (Username == "teste" && Password == "123") {
+      router.push("/home");
+    }
   };
 
   return (
@@ -29,6 +33,7 @@ export default function Login() {
         placeholderTextColor={"white"}
         value={Username}
         onChangeText={setUsername}
+        testID="username-input"
       ></TextInput>
       <TextInput
         style={styles.input}
@@ -37,10 +42,15 @@ export default function Login() {
         secureTextEntry
         value={Password}
         onChangeText={setPassword}
+        testID="password-input"
       ></TextInput>
-      <Pressable style={styles.button} onPress={handleGoToHome}>
-        <Image source={require("../assets/caricon.png")} style={styles.icon} />
-      </Pressable>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={handleGoToHome}
+        testID="login-button"
+      >
+        <Text>Sign In</Text>
+      </TouchableOpacity>
     </View>
   );
 }
